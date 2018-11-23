@@ -47,27 +47,29 @@ One issue will be the validation in case of offline use. Then, a basic validatio
 The openIMIS REST API is using JWT base authentication. The JWT is retrieved through the LOGIN screen which calls POST /api/login with the body { "username": "string", "password": "string"}. The response to this call will be { "token": "string", "expires": "datetime"}. The token has to be stored into a permanent storage to be retrieved on every call until the expiry date is reached. 
 
 Here is an example of a JWT: 
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiQWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiRW5yb2xsbWVudE9mZmljZXIiLCJNYW5hZ2VyIiwiQWNjb3VudGFudCIsIkNsZXJrIiwiTWVkaWNhbE9mZmljZXIiLCJTY2hlbWVBZG1pbiIsIklNSVNBZG1pbiIsIlJlY2VwdGlvbmlzdCIsIkNsYWltQWRtaW4iLCJDbGFpbUNvbnRyaWIiXSwiZXhwIjoxNTQzMDU3NDM0LCJpc3MiOiJodHRwOi8vb3BlbmltaXMub3JnIiwiYXVkIjoiaHR0cDovL29wZW5pbWlzLm9yZyJ9.RtVExJQpZUpbOxXZM3I4dGMzs4RIGT2PooLK8DfzSgs
+
+    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiQWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiRW5yb2xsbWVudE9mZmljZXIiLCJNYW5hZ2VyIiwiQWNjb3VudGFudCIsIkNsZXJrIiwiTWVkaWNhbE9mZmljZXIiLCJTY2hlbWVBZG1pbiIsIklNSVNBZG1pbiIsIlJlY2VwdGlvbmlzdCIsIkNsYWltQWRtaW4iLCJDbGFpbUNvbnRyaWIiXSwiZXhwIjoxNTQzMDU3NDM0LCJpc3MiOiJodHRwOi8vb3BlbmltaXMub3JnIiwiYXVkIjoiaHR0cDovL29wZW5pbWlzLm9yZyJ9.RtVExJQpZUpbOxXZM3I4dGMzs4RIGT2PooLK8DfzSgs
 
 Here is the payload of the decoded JWT example: 
-{
-  "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "Admin",
-  "http://schemas.microsoft.com/ws/2008/06/identity/claims/role": [
-    "EnrollmentOfficer",
-    "Manager",
-    "Accountant",
-    "Clerk",
-    "MedicalOfficer",
-    "SchemeAdmin",
-    "IMISAdmin",
-    "Receptionist",
-    "ClaimAdmin",
-    "ClaimContrib"
-  ],
-  "exp": 1543057434,
-  "iss": "http://openimis.org",
-  "aud": "http://openimis.org"
-}
+
+    {
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "Admin",
+      "http://schemas.microsoft.com/ws/2008/06/identity/claims/role": [
+        "EnrollmentOfficer",
+        "Manager",
+        "Accountant",
+        "Clerk",
+        "MedicalOfficer",
+        "SchemeAdmin",
+        "IMISAdmin",
+        "Receptionist",
+        "ClaimAdmin",
+        "ClaimContrib"
+      ],
+      "exp": 1543057434,
+      "iss": "http://openimis.org",
+      "aud": "http://openimis.org"
+    }
 
 
 Moreover, to facilitate the developments of new functionalities, we would like to have the functionality to intercept the HTTP.S requests in order to add the Authorization: Bearer <Token> header before transferring to the API. The login request does not require an authorization header. 
@@ -80,9 +82,9 @@ From the decoded payload we can retrieve the username and the different openIMIS
 
 ## Management of the 4xx/5xx responses
 The application should manage error responses:
-400 for request incomplete or wrong based on the response to show the error to the user
-401 if the JWT is missing, is wrong or expired to send the user to the login page and to return to the previous page after success login 
-500 internal error to show an error message: “An error occurred. Please try later.” 
+- 400 for request incomplete or wrong based on the response to show the error to the user
+- 401 if the JWT is missing, is wrong or expired to send the user to the login page and to return to the previous page after success login 
+- 500 internal error to show an error message: “An error occurred. Please try later.” 
 
 ## Manages GET, POST and PUT requests when the device is OFFLINE
 One of the issues of using a Web Application is its usage when there is no Internet connectivity. openIMIS has been developed to be used in low and middle income countries where Internet connectivity is very unpredictable. This is the reason why we propose to implement a Progressive Web Application that integrates a Service Worker to manage the offline connectivity state of the application. 
@@ -122,3 +124,5 @@ Enrolment officer: enrolment.officer / XBqR2WpIMUB
 ### Tools we use
 
 Insomnia https://insomnia.rest  
+
+
