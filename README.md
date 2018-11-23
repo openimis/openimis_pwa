@@ -23,7 +23,7 @@ If you want to see the openIMIS platform you can access the Web Application at h
 
 ## User Interface
 
-The openIMIS User Interface should work on any screen type like mobile, tablet and desktop computers. Since we donít expect the UI to be fully finished over the weekend, we would like to aim for a basic interface that manages the 3 types of screens. We would like to have the screens to manage the Family entity that will help us to continue the work with other entities:
+The openIMIS User Interface should work on any screen type like mobile, tablet and desktop computers. Since we don‚Äôt expect the UI to be fully finished over the weekend, we would like to aim for a basic interface that manages the 3 types of screens. We would like to have the screens to manage the Family entity that will help us to continue the work with other entities:
 
  - list all Families (GET /api/family)
  - view one Family with the list of Insuree (family members) (GET
@@ -34,11 +34,11 @@ The openIMIS User Interface should work on any screen type like mobile, tablet a
 
 Among the Family management screens, we would like to have the main layout showing the current user with a menu to access different functionalities, screens for login, user profile, and the associated CSS style to be used on future developments.
 
-We expect to have a Responsive Design that adapts the screen on the deviceís size. The selection of the framework (Bootstrap, Material Design, ...) is open for discussion. 
+We expect to have a Responsive Design that adapts the screen on the device‚Äôs size. The selection of the framework (Bootstrap, Material Design, ...) is open for discussion. 
 
 ## Form validation
 
-The server side API is managing the validation of the received data and returns error messages under the format ìnumber:messageî.  Ex. ì1:The insuree number is already registeredî. We wish to have a basic functionality in order to add the error messages to the respective inputs.
+The server side API is managing the validation of the received data and returns error messages under the format ‚Äúnumber:message‚Äù.  Ex. ‚Äú1:The insuree number is already registered‚Äù. We wish to have a basic functionality in order to add the error messages to the respective inputs.
 
 One issue will be the validation in case of offline use. Then, a basic validation of inputs would be nice to have. 
 
@@ -84,7 +84,7 @@ From the decoded payload we can retrieve the username and the different openIMIS
 The application should manage error responses:
 - 400 for request incomplete or wrong based on the response to show the error to the user
 - 401 if the JWT is missing, is wrong or expired to send the user to the login page and to return to the previous page after success login 
-- 500 internal error to show an error message: ìAn error occurred. Please try later.î 
+- 500 internal error to show an error message: ‚ÄúAn error occurred. Please try later.‚Äù 
 
 ## Manages GET, POST and PUT requests when the device is OFFLINE
 One of the issues of using a Web Application is its usage when there is no Internet connectivity. openIMIS has been developed to be used in low and middle income countries where Internet connectivity is very unpredictable. This is the reason why we propose to implement a Progressive Web Application that integrates a Service Worker to manage the offline connectivity state of the application. 
@@ -98,18 +98,18 @@ The application is supposed to be used by Enrolment Officers in the field where 
 
 The same concern applies also to pages as an Officer could login when online but use the application only in the field when offline. 
 
-## Accessing the deviceís hardware
+## Accessing the device‚Äôs hardware
 The registration of new insuree requires to take his/her picture. Although the registration of the picture is not yet implemented into the API, we wish to have the basic functionality that will allow us to choose a picture from the device storage or to take another picture and attach it to an insuree. 
 
-Every insuree receives a card that has the insureeís information along with a QR code containing the insureeís number. We would like to include a library to manage QR code based on a picture taken with the device. It will be used when registering a new insuree (Family) by assigning his number directly from the future card to be given to the insuree (in the registration form, a button will be present that will allow to take the QR picture, decode it and adding the number to the insureeís number field).
+Every insuree receives a card that has the insuree‚Äôs information along with a QR code containing the insuree‚Äôs number. We would like to include a library to manage QR code based on a picture taken with the device. It will be used when registering a new insuree (Family) by assigning his number directly from the future card to be given to the insuree (in the registration form, a button will be present that will allow to take the QR picture, decode it and adding the number to the insuree‚Äôs number field).
 
 ## Pushing notifications
 openIMIS system is dealing with insurances that have expiry dates (usually 1 year of coverage). The renewals are not automatically and the Officers dealing with enrollments have to be notified when renewal dates approaches for them to take contact with the Insurees and propose them to renew their policies. 
 
-This is where pushing notification came in to help us to easily get the Officersí attention. We wish to have a basic implementation of such a service. 
+This is where pushing notification came in to help us to easily get the Officers‚Äô attention. We wish to have a basic implementation of such a service. 
 
 ## Standalone application 
-One of the feature of PWA is to run as standalone application (even if it is executed through a browser). We wish to integrate a manifest file that will allow for easy installation on the deviceís screen with the openIMIS name and icon (identity to get from https://openimis.atlassian.net/wiki/spaces/OP/pages/195756039/Corporate+Identity). 
+One of the feature of PWA is to run as standalone application (even if it is executed through a browser). We wish to integrate a manifest file that will allow for easy installation on the device‚Äôs screen with the openIMIS name and icon (identity to get from https://openimis.atlassian.net/wiki/spaces/OP/pages/195756039/Corporate+Identity). 
 
 ## Further collaboration
 We wish to attract your attention that your implication in openIMIS development may not be limited to the BaselHack. We will be glad to add you to the list of contributors of our open source solution and continue the collaboration even after the event. Please tell us if you wish to continue to work on openIMIS to bring the system to even higher levels.
@@ -119,6 +119,7 @@ We wish to attract your attention that your implication in openIMIS development 
 ### User logins
 
 Admin user: admin / admin123
+
 Enrolment officer: enrolment.officer / XBqR2WpIMUB
 
 ### Tools we use
