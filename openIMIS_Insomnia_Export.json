@@ -1,0 +1,746 @@
+{
+	"_type": "export",
+	"__export_format": 3,
+	"__export_date": "2018-11-23T15:09:20.334Z",
+	"__export_source": "insomnia.desktop.app:v6.2.0",
+	"resources": [
+		{
+			"_id": "wrk_b7108cecccec4ed3b4e960ebfa32b654",
+			"created": 1527242600520,
+			"description": "",
+			"modified": 1527242600520,
+			"name": "openIMIS",
+			"parentId": null,
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_4385428ba3a142328ce6604f4750dcab",
+			"color": null,
+			"created": 1527242600531,
+			"data": {},
+			"isPrivate": false,
+			"metaSortKey": 1542985304567,
+			"modified": 1542985318503,
+			"name": "New Environment",
+			"parentId": "wrk_b7108cecccec4ed3b4e960ebfa32b654",
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_6997533fe049488ea9392b155233af77",
+			"cookies": [],
+			"created": 1527242600533,
+			"modified": 1527242600533,
+			"name": "Default Jar",
+			"parentId": "wrk_b7108cecccec4ed3b4e960ebfa32b654",
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "fld_5fd488d0d53b47c3adac15daf27a6285",
+			"created": 1535376161346,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1535376161346,
+			"modified": 1542107971140,
+			"name": "InsureeManagementModule",
+			"parentId": "wrk_b7108cecccec4ed3b4e960ebfa32b654",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_b95fd41bb88343a6b2f7c1330cddb90c",
+			"created": 1535376174017,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1535376174017,
+			"modified": 1535376174017,
+			"name": "Authentication",
+			"parentId": "wrk_b7108cecccec4ed3b4e960ebfa32b654",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_71adba21474a4a129c0dec1f3de3b418",
+			"created": 1535638675810,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1528286502214,
+			"modified": 1535638680794,
+			"name": "WebServices",
+			"parentId": "wrk_b7108cecccec4ed3b4e960ebfa32b654",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_be83d7f21a62404d86d2c48d3defe439",
+			"created": 1542640918241,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1542640918242,
+			"modified": 1542640918241,
+			"name": "MasterDataManagementModule",
+			"parentId": "wrk_b7108cecccec4ed3b4e960ebfa32b654",
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_c84d723d170a43a991db5aeb4545e36a",
+			"authentication": {},
+			"body": {},
+			"created": 1529330289621,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_c559fc40d77c4d05b14de2f58e68b1bc",
+					"name": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiQWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiRW5yb2xsbWVudE9mZmljZXIiLCJNYW5hZ2VyIiwiQWNjb3VudGFudCIsIkNsZXJrIiwiTWVkaWNhbE9mZmljZXIiLCJTY2hlbWVBZG1pbiIsIklNSVNBZG1pbiIsIlJlY2VwdGlvbmlzdCIsIkNsYWltQWRtaW4iLCJDbGFpbUNvbnRyaWIiXSwiZXhwIjoxNTQzMDU3NDM0LCJpc3MiOiJodHRwOi8vb3BlbmltaXMub3JnIiwiYXVkIjoiaHR0cDovL29wZW5pbWlzLm9yZyJ9.RtVExJQpZUpbOxXZM3I4dGMzs4RIGT2PooLK8DfzSgs"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1529330289621,
+			"method": "GET",
+			"modified": 1542985644769,
+			"name": "API Get values",
+			"parameters": [],
+			"parentId": "wrk_b7108cecccec4ed3b4e960ebfa32b654",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:35787/api/values",
+			"_type": "request"
+		},
+		{
+			"_id": "env_6014042882424bf79eab25c27254e0f3",
+			"color": null,
+			"created": 1528207250008,
+			"data": {
+				"base_url": "http://demo.openimis.org/Services/imisservices.asmx"
+			},
+			"isPrivate": false,
+			"metaSortKey": 1535638496136,
+			"modified": 1542985296981,
+			"name": "demo.openimis.org (Nepal)",
+			"parentId": "env_4385428ba3a142328ce6604f4750dcab",
+			"_type": "environment"
+		},
+		{
+			"_id": "env_4e49a19ba9a14526bb52329c9e443eaa",
+			"color": null,
+			"created": 1528295787481,
+			"data": {
+				"base_url": "http://imis-mv.swisstph-mis.ch/Services/exactservices.asmx"
+			},
+			"isPrivate": false,
+			"metaSortKey": 1535375921782,
+			"modified": 1542985312571,
+			"name": "imis-mv.swisstph-mis.ch",
+			"parentId": "env_4385428ba3a142328ce6604f4750dcab",
+			"_type": "environment"
+		},
+		{
+			"_id": "env_6ea5e1baf39145cfa1d5cf4fbce6fcf6",
+			"color": null,
+			"created": 1535375928313,
+			"data": {
+				"base_url": "localhost:35787"
+			},
+			"isPrivate": false,
+			"metaSortKey": 1535375928313,
+			"modified": 1542985334350,
+			"name": "Localhost",
+			"parentId": "env_4385428ba3a142328ce6604f4750dcab",
+			"_type": "environment"
+		},
+		{
+			"_id": "env_0bd65d9aa50a4e8aaa0e32f0e90f9738",
+			"color": null,
+			"created": 1537782124414,
+			"data": {
+				"base_url": "https://imis-tchad-dev.swisstph-mis.ch/Services.17.5.15/exactServices.asmx"
+			},
+			"isPrivate": false,
+			"metaSortKey": 1537782124414,
+			"modified": 1542985306114,
+			"name": "Tchad",
+			"parentId": "env_4385428ba3a142328ce6604f4750dcab",
+			"_type": "environment"
+		},
+		{
+			"_id": "env_27cfbddaa5c2412aba41e57e9e427513",
+			"color": null,
+			"created": 1542985325217,
+			"data": {
+				"JWT": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiQWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiRW5yb2xsbWVudE9mZmljZXIiLCJNYW5hZ2VyIiwiQWNjb3VudGFudCIsIkNsZXJrIiwiTWVkaWNhbE9mZmljZXIiLCJTY2hlbWVBZG1pbiIsIklNSVNBZG1pbiIsIlJlY2VwdGlvbmlzdCIsIkNsYWltQWRtaW4iLCJDbGFpbUNvbnRyaWIiXSwiZXhwIjoxNTQzNDE3NDYzLCJpc3MiOiJodHRwOi8vb3BlbmltaXMub3JnIiwiYXVkIjoiaHR0cDovL29wZW5pbWlzLm9yZyJ9.RMBHSjtB-AcPL5i6NVVDfk8v8thUj41dzzC8f0WzDko",
+				"base_url": "http://baselhack.swisstph-mis.ch/RestApi"
+			},
+			"isPrivate": false,
+			"metaSortKey": 1542985325217,
+			"modified": 1542985588554,
+			"name": "BaselHack",
+			"parentId": "env_4385428ba3a142328ce6604f4750dcab",
+			"_type": "environment"
+		},
+		{
+			"_id": "fld_cc1b72708e894e77b36170939cec0862",
+			"created": 1542107982814,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1542107982814,
+			"modified": 1542107982814,
+			"name": "FamilyManagement",
+			"parentId": "fld_5fd488d0d53b47c3adac15daf27a6285",
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_1d760a4140854215812ea6521804ae3e",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"Username\": \"Admin\",\n\t\"Password\": \"admin123\"\n}"
+			},
+			"created": 1528968948084,
+			"description": "",
+			"headers": [
+				{
+					"disabled": true,
+					"id": "pair_ce156f181e5240c99ca3190ff875e28a",
+					"name": "Content-Type ",
+					"value": "application/x-www-form-urlencoded"
+				},
+				{
+					"id": "pair_b9e6ecae1ade4f37964cd13c9fc65791",
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"id": "pair_6cd52729cb064319ac9bb229387377ff",
+					"name": "cache-control",
+					"value": "no-cache"
+				},
+				{
+					"id": "pair_b65aab8344b54174bc81b26413a5a538",
+					"name": "",
+					"value": ""
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1528968948084,
+			"method": "POST",
+			"modified": 1542985556532,
+			"name": "API Login",
+			"parameters": [],
+			"parentId": "fld_b95fd41bb88343a6b2f7c1330cddb90c",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ base_url  }}/api/login",
+			"_type": "request"
+		},
+		{
+			"_id": "req_c983b7c3159745e4baaa4ebfee83e68b",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/xml",
+				"text": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Body>\n    <getFTPCredentials xmlns=\"http://tempuri.org/\" />\n  </soap12:Body>\n</soap12:Envelope>"
+			},
+			"created": 1527242714807,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_f47e734005134130a3361e547fa22305",
+					"name": "Content-Type",
+					"value": "application/soap+xml"
+				},
+				{
+					"disabled": false,
+					"id": "pair_76306ae698fc4293a1eae1f2c89e4ee7",
+					"name": "SOAPAction",
+					"value": "http://tempuri.org/getFTPCredentials"
+				},
+				{
+					"disabled": true,
+					"id": "pair_5066ae1df46d4a0aa0fb872df7e7325b",
+					"name": "Host",
+					"value": "132.148.151.32"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1527242714807,
+			"method": "POST",
+			"modified": 1542985645849,
+			"name": "getFTPCredentials",
+			"parameters": [],
+			"parentId": "fld_71adba21474a4a129c0dec1f3de3b418",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ base_url  }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_98352ebd2d1d4f7393531ea637794269",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/xml",
+				"text": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Body>\n    <downloadMasterData xmlns=\"http://tempuri.org/\" />\n  </soap12:Body>\n</soap12:Envelope>"
+			},
+			"created": 1528295252913,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_f47e734005134130a3361e547fa22305",
+					"name": "Content-Type",
+					"value": "application/soap+xml"
+				},
+				{
+					"disabled": false,
+					"id": "pair_76306ae698fc4293a1eae1f2c89e4ee7",
+					"name": "SOAPAction",
+					"value": "http://tempuri.org/getFTPCredentials"
+				},
+				{
+					"disabled": true,
+					"id": "pair_5066ae1df46d4a0aa0fb872df7e7325b",
+					"name": "Host",
+					"value": "132.148.151.32"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1527242714757,
+			"method": "POST",
+			"modified": 1542985721131,
+			"name": "downloadMasterData",
+			"parameters": [],
+			"parentId": "fld_71adba21474a4a129c0dec1f3de3b418",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ base_url  }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_727ec76d71d14154af7c5dcf42e33700",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/xml",
+				"text": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Body>\n    <CreatePhoneExtracts xmlns=\"http://tempuri.org/\">\n      <DistrictId>1</DistrictId>\n      <UserId>1</UserId>\n      <WithInsuree>true</WithInsuree>\n    </CreatePhoneExtracts>\n  </soap12:Body>\n</soap12:Envelope>"
+			},
+			"created": 1528295448476,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_f47e734005134130a3361e547fa22305",
+					"name": "Content-Type",
+					"value": "application/soap+xml"
+				},
+				{
+					"disabled": false,
+					"id": "pair_76306ae698fc4293a1eae1f2c89e4ee7",
+					"name": "SOAPAction",
+					"value": "http://tempuri.org/getFTPCredentials"
+				},
+				{
+					"disabled": true,
+					"id": "pair_5066ae1df46d4a0aa0fb872df7e7325b",
+					"name": "Host",
+					"value": "132.148.151.32"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1527242714657,
+			"method": "POST",
+			"modified": 1542985742154,
+			"name": "CreatePhoneExtracts",
+			"parameters": [],
+			"parentId": "fld_71adba21474a4a129c0dec1f3de3b418",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ base_url  }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_25b6ae835fca43bfa1bd72f3709090df",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/xml",
+				"text": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Body>\n    <CreateOfflineExtract xmlns=\"http://tempuri.org/\">\n      <RegionId>1</RegionId>\n      <DistrictId>1</DistrictId>\n      <UserId>1</UserId>\n      <WithInsuree>true</WithInsuree>\n      <ChkFullExtract>true</ChkFullExtract>\n    </CreateOfflineExtract>\n  </soap12:Body>\n</soap12:Envelope>"
+			},
+			"created": 1528295595420,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_f47e734005134130a3361e547fa22305",
+					"name": "Content-Type",
+					"value": "application/soap+xml"
+				},
+				{
+					"disabled": false,
+					"id": "pair_76306ae698fc4293a1eae1f2c89e4ee7",
+					"name": "SOAPAction",
+					"value": "http://tempuri.org/getFTPCredentials"
+				},
+				{
+					"disabled": true,
+					"id": "pair_5066ae1df46d4a0aa0fb872df7e7325b",
+					"name": "Host",
+					"value": "132.148.151.32"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1527242714607,
+			"method": "POST",
+			"modified": 1542985743123,
+			"name": "CreateOfflineExtract",
+			"parameters": [],
+			"parentId": "fld_71adba21474a4a129c0dec1f3de3b418",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ base_url  }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_d904455068f3416d90cf14d4a4d70720",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/xml",
+				"text": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Body>\n    <EnquireInsuree xmlns=\"http://tempuri.org/\">\n      <CHFID>100000001</CHFID>\n    </EnquireInsuree>\n  </soap12:Body>\n</soap12:Envelope>"
+			},
+			"created": 1528798515225,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_f47e734005134130a3361e547fa22305",
+					"name": "Content-Type",
+					"value": "application/soap+xml"
+				},
+				{
+					"disabled": false,
+					"id": "pair_76306ae698fc4293a1eae1f2c89e4ee7",
+					"name": "SOAPAction",
+					"value": "http://tempuri.org/getFTPCredentials"
+				},
+				{
+					"disabled": true,
+					"id": "pair_5066ae1df46d4a0aa0fb872df7e7325b",
+					"name": "Host",
+					"value": "132.148.151.32"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1527242714707,
+			"method": "POST",
+			"modified": 1542985740811,
+			"name": "EnquireInsuree",
+			"parameters": [],
+			"parentId": "fld_71adba21474a4a129c0dec1f3de3b418",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ base_url  }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_98aab357cea043c9899c96b284bae61e",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/xml",
+				"text": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Body>\n    <UploadPhoto xmlns=\"http://tempuri.org/\">\n      <Image> </Image>\n      <ImageName>AndroidEmulator.JPG</ImageName>\n      <CHFID>070707070</CHFID>\n      <OfficerCode>E00001</OfficerCode>\n    </UploadPhoto>\n  </soap12:Body>\n</soap12:Envelope>"
+			},
+			"created": 1538143552455,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_f47e734005134130a3361e547fa22305",
+					"name": "Content-Type",
+					"value": "application/soap+xml"
+				},
+				{
+					"disabled": false,
+					"id": "pair_76306ae698fc4293a1eae1f2c89e4ee7",
+					"name": "SOAPAction",
+					"value": "http://tempuri.org/UploadPhoto"
+				},
+				{
+					"disabled": true,
+					"id": "pair_5066ae1df46d4a0aa0fb872df7e7325b",
+					"name": "Host",
+					"value": "132.148.151.32"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1527242714732,
+			"method": "POST",
+			"modified": 1542985739547,
+			"name": "uploadPhoto",
+			"parameters": [],
+			"parentId": "fld_71adba21474a4a129c0dec1f3de3b418",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:1399/IMISServices.asmx",
+			"_type": "request"
+		},
+		{
+			"_id": "fld_e60934d33267438e85ca37c28d7efce6",
+			"created": 1542640944789,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1542640944789,
+			"modified": 1542640951068,
+			"name": "LocationManagement",
+			"parentId": "fld_be83d7f21a62404d86d2c48d3defe439",
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_21fecdd232a84dd5a8656acd690fd6bf",
+			"authentication": {
+				"prefix": "",
+				"token": "{{ JWT  }}",
+				"type": "bearer"
+			},
+			"body": {},
+			"created": 1542792735904,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1542792735904,
+			"method": "GET",
+			"modified": 1542985595949,
+			"name": "Get Master Data",
+			"parameters": [],
+			"parentId": "fld_be83d7f21a62404d86d2c48d3defe439",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ base_url  }}/api/master",
+			"_type": "request"
+		},
+		{
+			"_id": "req_f07bbdb1e34a4ddd8d02d19103a396a3",
+			"authentication": {},
+			"body": {},
+			"created": 1535376203057,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_8eb8136b013d40c28a20b73c711b649d",
+					"name": "Authorization",
+					"value": "Bearer {{ JWT  }}"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1542107982864,
+			"method": "GET",
+			"modified": 1542985616787,
+			"name": "Get Family",
+			"parameters": [],
+			"parentId": "fld_cc1b72708e894e77b36170939cec0862",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ base_url  }}/api/family/22",
+			"_type": "request"
+		},
+		{
+			"_id": "req_eeb8b525086249368fb4e8840ae85f40",
+			"authentication": {},
+			"body": {},
+			"created": 1542108002792,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_8eb8136b013d40c28a20b73c711b649d",
+					"name": "Authorization",
+					"value": "Bearer {{ JWT  }}"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1535719136242.5,
+			"method": "GET",
+			"modified": 1542985637839,
+			"name": "Get All Families",
+			"parameters": [
+				{
+					"disabled": false,
+					"id": "pair_592e22cb9acd44a397920808475113aa",
+					"name": "page",
+					"value": "1"
+				},
+				{
+					"disabled": false,
+					"id": "pair_f4f9a742a2984cba9a0ca58a89fcfdff",
+					"name": "numberPerPage",
+					"value": "10"
+				}
+			],
+			"parentId": "fld_cc1b72708e894e77b36170939cec0862",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ base_url  }}/api/family",
+			"_type": "request"
+		},
+		{
+			"_id": "req_99dda75aa5394faaaf84e441af0c3cfc",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\t\"insurees\": [\n\t\t\t{\n\t\t\t\t\"identificationNumber\": \"15213156\",\n\t\t\t\t\"chfid\": \"112233445569\",\n\t\t\t\t\"lastName\": \"Bla\",\n\t\t\t\t\"otherNames\": \"BlaBla\",\n\t\t\t\t\"dob\": \"1981-11-28T00:00:00\",\n\t\t\t\t\"gender\": \"F\",\n\t\t\t\t\"marital\": \"S\",\n\t\t\t\t\"isHead\": true,\n\t\t\t\t\"phone\": null,\n\t\t\t\t\"cardIssued\": false,\n\t\t\t\t\"relationship\": null,\n\t\t\t\t\"profession\": null,\n\t\t\t\t\"education\": null,\n\t\t\t\t\"email\": null,\n\t\t\t\t\"typeOfId\": null,\n\t\t\t\t\"hfid\": null,\n\t\t\t\t\"currentAddress\": null,\n\t\t\t\t\"geoLocation\": null,\n\t\t\t\t\"currentVillage\": null,\n\t\t\t\t\"photo\": null,\n\t\t\t\t\"identificationTypes\": null,\n\t\t\t\t\"isOffline\": false\n\t\t\t},\n\t\t\t\n\t\t],\n\t\t\"locationId\": 151,\n\t\t\"poverty\": false,\n\t\t\"familyType\": null,\n\t\t\"familyAddress\": \"0\",\n\t\t\"ethnicity\": \"0\",\n\t\t\"confirmationNo\": \"0\",\n\t\t\"confirmationType\": null,\n\t\t\"isOffline\": false\n\t},"
+			},
+			"created": 1542198768231,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_8eb8136b013d40c28a20b73c711b649d",
+					"name": "Authorization",
+					"value": "Bearer {{ JWT  }}"
+				},
+				{
+					"id": "pair_479daa404ec148129aed9ac7e7a83dd8",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1538913559553.25,
+			"method": "POST",
+			"modified": 1542985621873,
+			"name": "Add Family",
+			"parameters": [],
+			"parentId": "fld_cc1b72708e894e77b36170939cec0862",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ base_url  }}/api/family",
+			"_type": "request"
+		},
+		{
+			"_id": "req_c5a0aca444654e30a40c5cdf572881b7",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\t\"locationId\": 151,\n\t\t\"poverty\": true,\n\t\t\"familyType\": null,\n\t\t\"familyAddress\": \"0\",\n\t\t\"ethnicity\": \"0\",\n\t\t\"confirmationNo\": \"0\",\n\t\t\"confirmationType\": null,\n\t\t\"isOffline\": false\n\t},"
+			},
+			"created": 1542984826453,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_8eb8136b013d40c28a20b73c711b649d",
+					"name": "Authorization",
+					"value": "Bearer {{ JWT  }}"
+				},
+				{
+					"id": "pair_479daa404ec148129aed9ac7e7a83dd8",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1537316347897.875,
+			"method": "PUT",
+			"modified": 1542985626803,
+			"name": "Edit Family",
+			"parameters": [],
+			"parentId": "fld_cc1b72708e894e77b36170939cec0862",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ base_url  }}/api/family/647",
+			"_type": "request"
+		},
+		{
+			"_id": "req_c0abad088f284f47b4e1d821d9e74923",
+			"authentication": {},
+			"body": {},
+			"created": 1542984922088,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_8eb8136b013d40c28a20b73c711b649d",
+					"name": "Authorization",
+					"value": "Bearer {{ JWT  }}"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1536517742070.1875,
+			"method": "DELETE",
+			"modified": 1542985631887,
+			"name": "Delete Family",
+			"parameters": [],
+			"parentId": "fld_cc1b72708e894e77b36170939cec0862",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ base_url  }}/api/family/647",
+			"_type": "request"
+		},
+		{
+			"_id": "req_b24140fcc9bc410eaa294cde3076b9f1",
+			"authentication": {},
+			"body": {},
+			"created": 1542640927887,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_64e1e9fdb2f745a5bb52765015b2f4a9",
+					"name": "Authorization",
+					"value": "Bearer {{ JWT  }}"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1542640936338,
+			"method": "GET",
+			"modified": 1542985609297,
+			"name": "GetAllLocations",
+			"parameters": [],
+			"parentId": "fld_e60934d33267438e85ca37c28d7efce6",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ base_url  }}/api/location",
+			"_type": "request"
+		}
+	]
+}
