@@ -12,7 +12,6 @@
       </blockquote> -->
       <FormAddFamily></FormAddFamily>
       <FormAddFamilyMember></FormAddFamilyMember>
-      {{ requests }}
     </v-flex>
   </v-layout>
 </template>
@@ -27,13 +26,8 @@ export default {
   },
   data() {
     return {
-      requests: this.$store.requests
+      // requests: this.$store.requests
     }
-  },
-  computed: {
-    // requests() {
-    //   return this.$store.state.requests
-    // }
   }
 }
 </script>
