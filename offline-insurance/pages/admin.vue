@@ -92,9 +92,23 @@ export default {
     })
 
     window.addEventListener('online', e => {
-      console.warn('online', e, this.items)
+      console.warn('online', e)
       this.$store.commit('networkStatus', 'online')
+
       // TODO replay requests here
+      console.warn('Replaying requests')
+
+      this.$store.state.requestsErrors.map(e =>
+        this.$axios({
+          method: e.method,
+          url: e.url,
+          data: e.data
+        })
+          .then(response => {
+            console.warn('response', response)
+          })
+          .catch(console.error)
+      )
     })
   },
   data() {
