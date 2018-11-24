@@ -23,19 +23,20 @@
         :error-messages="selectErrors"
         item-text="locationName"
         item-value="locationId"
+        placeholder="Ultha"
         label="Region"
         required
         @change="$v.select.$touch()"
         @blur="$v.select.$touch()"
       ></v-select>
 
-      {{select}}
       <v-select
         v-model="district"
         :items=districts
         :error-messages="selectErrors"
         item-text="locationName"
         item-value="locationId"
+        placeholder="Baglung"
         label="District"
         required
         @change="$v.select.$touch()"
@@ -64,8 +65,7 @@
     -->
 
       <v-checkbox
-        v-model="checkbox"
-        :error-messages="checkboxErrors"
+        v-model="povertyStatus"
         label="Poverty status"
         @change="$v.checkbox.$touch()"
         @blur="$v.checkbox.$touch()"
@@ -77,26 +77,28 @@
         label="Confirmation type"
         item-text="confirmationType"
         item-value="confirmationTypeCode"
+        placeholder="State"
         @change="$v.select.$touch()"
         @blur="$v.select.$touch()"
       ></v-select>
       <v-text-field
-        v-model="name"
+        v-model="ConfirmationNumber"
         :error-messages="nameErrors"
         label="Confirmation number"
         @input="$v.name.$touch()"
         @blur="$v.name.$touch()"
       ></v-text-field>
       <v-select
-        v-model="select"
+        v-model="GroupType"
         :items="items"
         :error-messages="selectErrors"
         label="Group type"
+        placeholder="Item1"
         @change="$v.select.$touch()"
         @blur="$v.select.$touch()"
       ></v-select>
       <v-text-field
-        v-model="name"
+        v-model="PermanentAddress"
         :error-messages="nameErrors"
         label="Permanent address"
         @input="$v.name.$touch()"
@@ -105,7 +107,7 @@
     </form>
     <form>
       <v-text-field
-        v-model="name"
+        v-model="InsuranceNumber"
         :error-messages="nameErrors"
         :counter="12"
         label="Insurance Number"
@@ -114,7 +116,7 @@
         @blur="$v.name.$touch()"
       ></v-text-field>
       <v-text-field
-        v-model="name"
+        v-model="Firstname"
         :error-messages="nameErrors"
         label="Other Names"
         required
@@ -122,7 +124,7 @@
         @blur="$v.name.$touch()"
       ></v-text-field>
       <v-text-field
-        v-model="name"
+        v-model="Lastname"
         :error-messages="nameErrors"
         label="Surname"
         required
@@ -137,7 +139,7 @@
         @input="$v.email.$touch()"
         @blur="$v.email.$touch()"
       ></v-text-field>
-      <v-select
+      <!-- <v-select
         v-model="select"
         :items="items"
         :error-messages="selectErrors"
@@ -145,18 +147,9 @@
         required
         @change="$v.select.$touch()"
         @blur="$v.select.$touch()"
-      ></v-select>
+      ></v-select> -->
       <v-select
-        v-model="select"
-        :items="items"
-        :error-messages="selectErrors"
-        label="Marital Status"
-        required
-        @change="$v.select.$touch()"
-        @blur="$v.select.$touch()"
-      ></v-select>
-      <v-select
-        v-model="select"
+        v-model="MaritalStatus"
         :items="items"
         :error-messages="selectErrors"
         label="Marital Status"
@@ -166,7 +159,6 @@
       ></v-select>
       <v-checkbox
         v-model="beneficiaryCard"
-        :error-messages="checkboxErrors"
         label="Beneficiary Card"
         @change="$v.checkbox.$touch()"
         @blur="$v.checkbox.$touch()"
@@ -233,7 +225,6 @@
         label="Education"
         item-text="educationLevel"
         item-value="educationLevelId"
-        required
         @change="$v.select.$touch()"
         @blur="$v.select.$touch()"
       ></v-select>
@@ -358,7 +349,18 @@ export default {
     items: ['Item 1', 'Item 2', 'Item 3', 'Item 4'],
     checkbox: false,
     district: null,
-    region: null
+    region: null,
+    beneficiaryCard: null,
+    educationLevels: null,
+    povertyStatus: null,
+    confirmationType: null,
+    ConfirmationNumber: null,
+    GroupType: null,
+    PermanentAddress: null,
+    InsuranceNumber: null,
+    FirstName: null,
+    LastName: null,
+    MaritalStatus: null
   }),
 
   computed: {
@@ -380,29 +382,29 @@ export default {
     },
     checkboxErrors() {
       const errors = []
-      if (!this.$v.checkbox.$dirty) return errors
-      !this.$v.checkbox.checked && errors.push('You must agree to continue!')
+      // if (!this.$v.checkbox.$dirty) return errors
+      // !this.$v.checkbox.checked && errors.push('You must agree to continue!')
       return errors
     },
     selectErrors() {
       const errors = []
-      if (!this.$v.select.$dirty) return errors
-      !this.$v.select.required && errors.push('Item is required')
+      // if (!this.$v.select.$dirty) return errors
+      // !this.$v.select.required && errors.push('Item is required')
       return errors
     },
     nameErrors() {
       const errors = []
-      if (!this.$v.name.$dirty) return errors
-      !this.$v.name.maxLength &&
-        errors.push('Name must be at most 10 characters long')
-      !this.$v.name.required && errors.push('Name is required.')
+      // if (!this.$v.name.$dirty) return errors
+      // !this.$v.name.maxLength &&
+      //   errors.push('Name must be at most 10 characters long')
+      // !this.$v.name.required && errors.push('Name is required.')
       return errors
     },
     emailErrors() {
       const errors = []
-      if (!this.$v.email.$dirty) return errors
-      !this.$v.email.email && errors.push('Must be valid e-mail')
-      !this.$v.email.required && errors.push('E-mail is required')
+      // if (!this.$v.email.$dirty) return errors
+      // !this.$v.email.email && errors.push('Must be valid e-mail')
+      // !this.$v.email.required && errors.push('E-mail is required')
       return errors
     }
   },
@@ -410,6 +412,15 @@ export default {
   methods: {
     submit() {
       this.$v.$touch()
+      console.log('this:' + this)
+      /*this.$axios
+        .post(
+          'https://baselhack.swisstph-mis.ch/RestApi/api/family/',
+          this
+        )
+        .then(console.warn)
+        .catch(console.error)
+        */
     },
     clear() {
       this.$v.$reset()
