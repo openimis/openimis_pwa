@@ -24,11 +24,14 @@ export default {
   data() {
     return {
       number: this.$store.state.sidebar,
-      members: this.$store.state.members, // family members
-      locations: this.$store.state.master.locations
+      members: this.$store.state.members // family members
     }
   },
-  computed: {}
+  computed: {
+    locations() {
+      return this.$store.state.master.locations
+    }
+  }
 }
 </script>
 <style>
