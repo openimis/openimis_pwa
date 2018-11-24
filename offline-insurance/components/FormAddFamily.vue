@@ -396,6 +396,10 @@ export default {
   methods: {
     submit() {
       this.$v.$touch()
+
+      console.warn(this.$store.state.network.status)
+      // meybe here if its offline move to errors strait on ?
+
       this.$axios
         .post(
           'https://baselhack.swisstph-mis.ch/RestApi/api/family/',

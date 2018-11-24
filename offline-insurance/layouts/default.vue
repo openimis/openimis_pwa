@@ -30,6 +30,7 @@
       <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
 
       <v-toolbar-title v-text="title"></v-toolbar-title>
+      <v-toolbar-title v-text="network.status"></v-toolbar-title>
       <v-spacer></v-spacer>
 
     </v-toolbar>
@@ -63,6 +64,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   data() {
     return {
@@ -79,6 +82,22 @@ export default {
       rightDrawer: false,
       title: 'Tanzania offline insurance'
     }
+  },
+
+  computed: mapState(['network']),
+
+  mounted() {
+    if (!process.browser) {
+      return
+    }
+
+    window.addEventListener('offline', () =>
+      this.$store.commit('networkStatus', 'offline')
+    )
+
+    window.addEventListener('online', () =>
+      this.$store.commit('networkStatus', 'online')
+    )
   }
 }
 </script>
