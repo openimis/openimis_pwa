@@ -1,26 +1,30 @@
 // import store
 export default function({ $axios, redirect, store }) {
-  // TODO this should come from login.. but for now , this
-  $axios.setToken('Authorization', `Bearer ${process.env.accessToken}`)
-
   $axios.onRequest(config => {
-    console.log('Making request to ' + config.url)
-    console.log(config)
+    config.headers.common['Authorization'] = store.state.admin.accessToken
+
     store.commit('requests', {
       data: config.data,
       headers: config.headers,
       method: config.method,
+      time: new Date().toString(),
       url: config.url
     })
   })
 
   $axios.onError(error => {
     const code = parseInt(error.response && error.response.status)
+    console.log('Error from:', error)
 
-    if (error.message === 'Network Error') {
-      console.log('Error from:', error)
-      store.commit('requestsErrors', error)
-    }
+    // if (error.message === 'Network Error') {
+    store.commit('requestsErrors', {
+      ...error,
+      data: error.config.data,
+      method: error.config.method,
+      time: new Date().toString(),
+      url: error.config.url
+    })
+    // }
 
     if (code === 400) {
       redirect('/400')

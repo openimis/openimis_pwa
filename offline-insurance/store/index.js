@@ -1,6 +1,9 @@
 import masterData from '../assets/master_data'
 
 export const state = () => ({
+  admin: {
+    accessToken: `Bearer ${process.env.accessToken}`
+  },
   sidebar: false,
   requests: [], // on state network on replay
   requestsErrors: [],
