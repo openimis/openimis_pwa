@@ -4,6 +4,9 @@ export const state = () => ({
   admin: {
     accessToken: `Bearer ${process.env.accessToken}`
   },
+  network: {
+    status: 'online'
+  },
   sidebar: false,
   requests: [], // on state network on replay
   requestsErrors: [],
@@ -19,6 +22,9 @@ export const mutations = {
       ...state.admin,
       accessToken: `Bearer ${token}`
     }
+  },
+  networkStatus(state, status) {
+    state.network = { ...state.network, status }
   },
   toggleSidebar(state) {
     state.sidebar = !state.sidebar

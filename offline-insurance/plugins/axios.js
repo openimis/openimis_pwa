@@ -1,5 +1,5 @@
 // import store
-export default function({ $axios, redirect, store }) {
+export default function({ $axios, /*redirect,*/ store }) {
   $axios.onRequest(config => {
     config.headers.common['Authorization'] = store.state.admin.accessToken
 
@@ -14,7 +14,7 @@ export default function({ $axios, redirect, store }) {
 
   $axios.onError(error => {
     const code = parseInt(error.response && error.response.status)
-    console.log('Error from:', error)
+    console.log('Error from:', error, { code })
 
     // if (error.message === 'Network Error') {
     store.commit('requestsErrors', {
@@ -26,9 +26,9 @@ export default function({ $axios, redirect, store }) {
     })
     // }
 
-    if (code === 400) {
-      redirect('/400')
-    }
+    // if (code === 400) {
+    //   redirect('/400')
+    // }
   })
 }
 
