@@ -15,11 +15,11 @@
   </v-layout>
 </template>
 <script>
-  import FormAddFamily from '~/components/FormAddFamily'
+import FormAddFamily from '~/components/FormAddFamily'
 
-  export default {
-    components: {
-      FormAddFamily
-    }
+export default {
+  components: {
+    FormAddFamily
   }
+}
 </script>
