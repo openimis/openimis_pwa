@@ -11,15 +11,29 @@
         </footer>
       </blockquote> -->
       <FormAddFamily></FormAddFamily>
+      <FormAddFamilyMember></FormAddFamilyMember>
+      {{ requests }}
     </v-flex>
   </v-layout>
 </template>
 <script>
 import FormAddFamily from '~/components/FormAddFamily'
+import FormAddFamilyMember from '../components/FormAddFamilyMember'
 
 export default {
   components: {
+    FormAddFamilyMember,
     FormAddFamily
+  },
+  data() {
+    return {
+      requests: this.$store.requests
+    }
+  },
+  computed: {
+    // requests() {
+    //   return this.$store.state.requests
+    // }
   }
 }
 </script>

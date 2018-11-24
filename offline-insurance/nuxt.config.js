@@ -19,7 +19,7 @@ module.exports = {
   css: ['~/assets/style/app.styl'],
   meta,
   loading: { color: '#24802e' },
-  modules: ['@nuxtjs/pwa'],
+  modules: ['@nuxtjs/pwa', '@nuxtjs/axios'],
   workbox: {
     // Workbox options, for PWA mode
     dev: true
