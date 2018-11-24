@@ -20,7 +20,7 @@ export default {
   methods: {
     updateUser() {
       return this.$axios
-        .get('https://vuetifyjs.com/en/motion/transitions')
+        .get('https://baselhack.swisstph-mis.ch/RestApi/api/family/1')
         .then(console.warn)
         .catch(console.error)
     }
