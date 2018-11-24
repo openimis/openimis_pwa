@@ -96,7 +96,7 @@ export default {
       this.$store.commit('networkStatus', 'online')
 
       // TODO replay requests here
-      console.warn('Replaying requests')
+      console.warn('Replaying failed requests')
 
       this.$store.state.requestsErrors.map(e =>
         this.$axios({
@@ -106,6 +106,7 @@ export default {
         })
           .then(response => {
             console.warn('response', response)
+            // TODO remove from failed
           })
           .catch(console.error)
       )
