@@ -1,5 +1,7 @@
 # openIMIS Project - BaselHack wish list
 
+Offline insurance app.
+
 **NOTE: This document is a suggestion for developments during the hackathon. Any other suggestions of functionalities you consider interesting for and in the context of openIMIS are welcomed. Please share your thoughts with us!** 
 
 Our main objective at the BaselHack is to start the development of a new client application for openIMIS system that can be used on any screen type (mobile, tablet and desktop) and in any Internet connectivity conditions (online and offline). 
