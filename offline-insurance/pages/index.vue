@@ -10,10 +10,10 @@
           <FormLogin></FormLogin>
         </v-card-text>
 
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="primary" flat nuxt to="/addFamily">Continue</v-btn>
-        </v-card-actions>
+        <!--<v-card-actions>-->
+          <!--<v-spacer></v-spacer>-->
+          <!--<v-btn color="primary" flat nuxt to="/addFamily">Continue</v-btn>-->
+        <!--</v-card-actions>-->
 
       </v-card>
     </v-flex>
