@@ -18,25 +18,33 @@
     </v-menu> -->
     <form>
       <v-select
-        v-model="select"
-        :items="items"
+        v-model="region"
+        :items=this.$store.state.master.locations
         :error-messages="selectErrors"
+        item-text="locationName"
+        item-value="locationId"
         label="Region"
         required
         @change="$v.select.$touch()"
         @blur="$v.select.$touch()"
       ></v-select>
+
+      {{select}}
       <v-select
-        v-model="select"
-        :items="items"
+        v-model="district"
+        :items=districts
         :error-messages="selectErrors"
+        item-text="locationName"
+        item-value="locationId"
         label="District"
         required
         @change="$v.select.$touch()"
         @blur="$v.select.$touch()"
       ></v-select>
+
+      <!--
       <v-select
-        v-model="select"
+        v-model="ward"
         :items="items"
         :error-messages="selectErrors"
         label="Ward"
@@ -53,6 +61,8 @@
         @change="$v.select.$touch()"
         @blur="$v.select.$touch()"
       ></v-select>
+    -->
+
       <v-checkbox
         v-model="checkbox"
         :error-messages="checkboxErrors"
@@ -61,10 +71,12 @@
         @blur="$v.checkbox.$touch()"
       ></v-checkbox>
       <v-select
-        v-model="select"
-        :items="items"
+        v-model="confirmationType"
+        :items=this.$store.state.master.confirmationTypes
         :error-messages="selectErrors"
         label="Confirmation type"
+        item-text="confirmationType"
+        item-value="confirmationTypeCode"
         @change="$v.select.$touch()"
         @blur="$v.select.$touch()"
       ></v-select>
@@ -153,12 +165,14 @@
         @blur="$v.select.$touch()"
       ></v-select>
       <v-checkbox
-        v-model="checkbox"
+        v-model="beneficiaryCard"
         :error-messages="checkboxErrors"
         label="Beneficiary Card"
         @change="$v.checkbox.$touch()"
         @blur="$v.checkbox.$touch()"
       ></v-checkbox>
+
+      <!--
       <v-select
         v-model="select"
         :items="items"
@@ -211,15 +225,19 @@
         @change="$v.select.$touch()"
         @blur="$v.select.$touch()"
       ></v-select>
+    -->
       <v-select
-        v-model="select"
-        :items="items"
+        v-model="educationLevels"
+        :items=this.$store.state.master.educationLevels
         :error-messages="selectErrors"
         label="Education"
+        item-text="educationLevel"
+        item-value="educationLevelId"
         required
         @change="$v.select.$touch()"
         @blur="$v.select.$touch()"
       ></v-select>
+      <!--
       <v-text-field
         v-model="name"
         :error-messages="nameErrors"
@@ -286,6 +304,9 @@
         @change="$v.select.$touch()"
         @blur="$v.select.$touch()"
       ></v-select>
+    -->
+
+
       <!-- <v-select
         v-model="select"
         :items="items"
@@ -314,6 +335,8 @@
 import { validationMixin } from 'vuelidate'
 import { required, maxLength, email } from 'vuelidate/lib/validators'
 
+//import { mapState } from 'vuex'
+
 export default {
   mixins: [validationMixin],
 
@@ -333,10 +356,28 @@ export default {
     email: '',
     select: null,
     items: ['Item 1', 'Item 2', 'Item 3', 'Item 4'],
-    checkbox: false
+    checkbox: false,
+    district: null,
+    region: null
   }),
 
   computed: {
+    districts() {
+      const loc = this.$store.state.master.locations
+      var districts
+      /*const districts = this.$store.state.master.locations.filter(
+        el => parseInt(el.locationId) == parseInt(this.region)
+      ).locations*/
+      var l
+
+      for (l of loc) {
+        //console.log('L' + l.locationId)
+        if (l.locationId == this.region) {
+          districts = l.locations
+        }
+      }
+      return districts
+    },
     checkboxErrors() {
       const errors = []
       if (!this.$v.checkbox.$dirty) return errors
