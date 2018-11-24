@@ -1,11 +1,7 @@
 <template>
   <v-menu transition="slide-x-reverse-transition">
-    <v-btn slot="activator" dark color="secondary" v-on:click="updateUser">Make offline request</v-btn>
-    <v-list>
-      <v-list-tile v-for="n in requests" :key="n">
-        <v-list-tile-title v-text="'Item ' + n"></v-list-tile-title>
-      </v-list-tile>
-    </v-list>
+    <v-btn slot="activator" dark color="primary" v-on:click="getFamilyOk">Make online request</v-btn>
+    <v-btn slot="activator" dark color="secondary" v-on:click="getFamilyFail">Make offline request</v-btn>
   </v-menu>
 </template>
 
@@ -18,7 +14,13 @@ export default {
     }
   },
   methods: {
-    updateUser() {
+    getFamilyOk() {
+      return this.$axios
+        .get('https://jsonplaceholder.typicode.com/posts/42')
+        .then(console.warn)
+        .catch(console.error)
+    },
+    getFamilyFail() {
       return this.$axios
         .get('https://baselhack.swisstph-mis.ch/RestApi/api/family/1')
         .then(console.warn)

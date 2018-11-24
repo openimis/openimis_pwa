@@ -1,34 +1,35 @@
-<!--// this is admin area only avaible to admins-->
+<!--// this is admin area only available to admins-->
 <template>
   <v-layout>
     <v-flex text-xs-center>
-      <img src="/v.png" alt="Vuetify.js" class="mb-5">
-      <blockquote class="blockquote">
-        &#8220;First, solve the problem. Then, get a coveffe.&#8221;
-        <footer>
-          <small>
-            <em>&mdash;John Johnson</em>
-          </small>
-        </footer>
-      </blockquote>
-      <FormAddFamilyMember></FormAddFamilyMember>
+      <TestRequest></TestRequest>
       {{ requests }}
+      {{ requestsErrors }}
+
+      <v-list>
+        <v-list-tile v-for="request in requestsErrors" :key="request.url">
+          <v-list-tile-title v-text="request"></v-list-tile-title>
+        </v-list-tile>
+      </v-list>
+
+      <!--<v-list>-->
+        <!--<v-list-tile v-for="m in requests" :key="m">-->
+          <!--<v-list-tile-title v-text="m"></v-list-tile-title>-->
+        <!--</v-list-tile>-->
+      <!--</v-list>-->
+
     </v-flex>
   </v-layout>
 </template>
 <script>
-import FormAddFamily from '~/components/FormAddFamily'
-import FormAddFamilyMember from '../components/FormAddFamilyMember'
+import { mapState } from 'vuex'
+
+import TestRequest from '../components/TestRequest'
 
 export default {
   components: {
-    FormAddFamilyMember,
-    FormAddFamily
+    TestRequest
   },
-  data() {
-    return {
-      requests: this.$store.requests
-    }
-  }
+  computed: mapState(['requests', 'requestsErrors'])
 }
 </script>
