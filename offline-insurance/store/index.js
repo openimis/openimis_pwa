@@ -6,8 +6,7 @@ export const state = () => ({
   requestsErrors: [],
   members: ['John', 'Topher', 'Jeff', 'Emma', 'Ann'],
   master: {
-    ...masterData,
-    locations: ['Basel', 'Zurich']
+    ...masterData
   }
 })
 
