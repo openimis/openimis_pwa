@@ -71,10 +71,12 @@
         @blur="$v.checkbox.$touch()"
       ></v-checkbox>
       <v-select
-        v-model="select"
-        :items="items"
+        v-model="confirmationType"
+        :items=this.$store.state.master.confirmationTypes
         :error-messages="selectErrors"
         label="Confirmation type"
+        item-text="confirmationType"
+        item-value="confirmationTypeCode"
         @change="$v.select.$touch()"
         @blur="$v.select.$touch()"
       ></v-select>
@@ -163,7 +165,7 @@
         @blur="$v.select.$touch()"
       ></v-select>
       <v-checkbox
-        v-model="beneficiary-card"
+        v-model="beneficiaryCard"
         :error-messages="checkboxErrors"
         label="Beneficiary Card"
         @change="$v.checkbox.$touch()"
@@ -223,15 +225,19 @@
         @change="$v.select.$touch()"
         @blur="$v.select.$touch()"
       ></v-select>
+    -->
       <v-select
-        v-model="select"
-        :items="items"
+        v-model="educationLevels"
+        :items=this.$store.state.master.educationLevels
         :error-messages="selectErrors"
         label="Education"
+        item-text="educationLevel"
+        item-value="educationLevelId"
         required
         @change="$v.select.$touch()"
         @blur="$v.select.$touch()"
       ></v-select>
+      <!--
       <v-text-field
         v-model="name"
         :error-messages="nameErrors"
