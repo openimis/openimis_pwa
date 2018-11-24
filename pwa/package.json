@@ -1,0 +1,9 @@
+{
+  "name": "offline-insurance",
+  "scripts": {
+    "dev": "nuxt"
+  },
+  "dependencies": {
+    "nuxt": "^2.3.2"
+  }
+}

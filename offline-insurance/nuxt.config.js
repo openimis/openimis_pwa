@@ -1,5 +1,6 @@
 const nodeExternals = require('webpack-node-externals')
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
+
 module.exports = {
   /*
   ** Headers of the page
@@ -25,6 +26,12 @@ module.exports = {
   /*
   ** Build configuration
   */
+  modules: [
+    '@nuxtjs/pwa',
+  ],
+  workbox: {
+    // Workbox options
+  },
   build: {
     transpile: [/^vuetify/],
     plugins: [
