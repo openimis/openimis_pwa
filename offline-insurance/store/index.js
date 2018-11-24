@@ -14,6 +14,12 @@ export const state = () => ({
 })
 
 export const mutations = {
+  accessToken(state, token) {
+    state.admin = {
+      ...state.admin,
+      accessToken: `Bearer ${token}`
+    }
+  },
   toggleSidebar(state) {
     state.sidebar = !state.sidebar
   },
