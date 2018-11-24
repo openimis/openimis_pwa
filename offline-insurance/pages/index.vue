@@ -7,7 +7,7 @@
       <v-card>
         <v-card-title class="headline">Tanzania rules!!!</v-card-title>
         <v-card-text>
-          LOGIN FORM
+          <FormLogin></FormLogin>
         </v-card-text>
 
         <v-card-actions>
@@ -19,3 +19,18 @@
     </v-flex>
   </v-layout>
 </template>
+
+<script>
+import FormLogin from '~/components/FormLogin'
+
+export default {
+  components: {
+    FormLogin
+  },
+  data() {
+    return {
+      // requests: this.$store.requests
+    }
+  }
+}
+</script>
