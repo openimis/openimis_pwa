@@ -16,13 +16,17 @@ export default {
   methods: {
     getFamilyOk() {
       return this.$axios
-        .get('https://jsonplaceholder.typicode.com/posts/42')
+        .get(
+          'https://baselhack.swisstph-mis.ch/RestApi/api/family/?page=1&resultsPerPage=20'
+        )
         .then(console.warn)
         .catch(console.error)
     },
     getFamilyFail() {
       return this.$axios
-        .get('https://baselhack.swisstph-mis.ch/RestApi/api/family/1')
+        .get(
+          'https://baselhack.swisstph-mis.ch/RestApi/api/offline/?page=1&resultsPerPage=20'
+        )
         .then(console.warn)
         .catch(console.error)
     }
