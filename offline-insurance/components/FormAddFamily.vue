@@ -71,7 +71,6 @@
       <v-text-field
         v-model="name"
         :error-messages="nameErrors"
-        :counter="10"
         label="Confirmation number"
         @input="$v.name.$touch()"
         @blur="$v.name.$touch()"
@@ -87,7 +86,6 @@
       <v-text-field
         v-model="name"
         :error-messages="nameErrors"
-        :counter="10"
         label="Permanent address"
         @input="$v.name.$touch()"
         @blur="$v.name.$touch()"
@@ -97,8 +95,24 @@
       <v-text-field
         v-model="name"
         :error-messages="nameErrors"
-        :counter="10"
-        label="Name"
+        :counter="12"
+        label="Insurance Number"
+        required
+        @input="$v.name.$touch()"
+        @blur="$v.name.$touch()"
+      ></v-text-field>
+      <v-text-field
+        v-model="name"
+        :error-messages="nameErrors"
+        label="Other Names"
+        required
+        @input="$v.name.$touch()"
+        @blur="$v.name.$touch()"
+      ></v-text-field>
+      <v-text-field
+        v-model="name"
+        :error-messages="nameErrors"
+        label="Surname"
         required
         @input="$v.name.$touch()"
         @blur="$v.name.$touch()"
@@ -106,11 +120,172 @@
       <v-text-field
         v-model="email"
         :error-messages="emailErrors"
-        label="E-mail"
+        label="Birthdate"
         required
         @input="$v.email.$touch()"
         @blur="$v.email.$touch()"
       ></v-text-field>
+      <v-select
+        v-model="select"
+        :items="items"
+        :error-messages="selectErrors"
+        label="Village"
+        required
+        @change="$v.select.$touch()"
+        @blur="$v.select.$touch()"
+      ></v-select>
+      <v-select
+        v-model="select"
+        :items="items"
+        :error-messages="selectErrors"
+        label="Marital Status"
+        required
+        @change="$v.select.$touch()"
+        @blur="$v.select.$touch()"
+      ></v-select>
+      <v-select
+        v-model="select"
+        :items="items"
+        :error-messages="selectErrors"
+        label="Marital Status"
+        required
+        @change="$v.select.$touch()"
+        @blur="$v.select.$touch()"
+      ></v-select>
+      <v-checkbox
+        v-model="checkbox"
+        :error-messages="checkboxErrors"
+        label="Beneficiary Card"
+        @change="$v.checkbox.$touch()"
+        @blur="$v.checkbox.$touch()"
+      ></v-checkbox>
+      <v-select
+        v-model="select"
+        :items="items"
+        :error-messages="selectErrors"
+        label="Current Region"
+        required
+        @change="$v.select.$touch()"
+        @blur="$v.select.$touch()"
+      ></v-select>
+      <v-select
+        v-model="select"
+        :items="items"
+        :error-messages="selectErrors"
+        label="Current District"
+        required
+        @change="$v.select.$touch()"
+        @blur="$v.select.$touch()"
+      ></v-select>
+      <v-select
+        v-model="select"
+        :items="items"
+        :error-messages="selectErrors"
+        label="Current Ward"
+        required
+        @change="$v.select.$touch()"
+        @blur="$v.select.$touch()"
+      ></v-select>
+      <v-select
+        v-model="select"
+        :items="items"
+        :error-messages="selectErrors"
+        label="District Village"
+        required
+        @change="$v.select.$touch()"
+        @blur="$v.select.$touch()"
+      ></v-select>
+      <v-text-field
+        v-model="name"
+        :error-messages="nameErrors"
+        label="Current address details"
+        @input="$v.name.$touch()"
+        @blur="$v.name.$touch()"
+      ></v-text-field>
+      <v-select
+        v-model="select"
+        :items="items"
+        :error-messages="selectErrors"
+        label="Profession"
+        required
+        @change="$v.select.$touch()"
+        @blur="$v.select.$touch()"
+      ></v-select>
+      <v-select
+        v-model="select"
+        :items="items"
+        :error-messages="selectErrors"
+        label="Education"
+        required
+        @change="$v.select.$touch()"
+        @blur="$v.select.$touch()"
+      ></v-select>
+      <v-text-field
+        v-model="name"
+        :error-messages="nameErrors"
+        label="Phone Number"
+        @input="$v.name.$touch()"
+        @blur="$v.name.$touch()"
+      ></v-text-field>
+      <v-text-field
+        v-model="name"
+        :error-messages="nameErrors"
+        label="Email"
+        @input="$v.name.$touch()"
+        @blur="$v.name.$touch()"
+      ></v-text-field>
+      <v-select
+        v-model="select"
+        :items="items"
+        :error-messages="selectErrors"
+        label="Identification type"
+        required
+        @change="$v.select.$touch()"
+        @blur="$v.select.$touch()"
+      ></v-select>
+      <v-text-field
+        v-model="name"
+        :error-messages="nameErrors"
+        label="Identification Number"
+        @input="$v.name.$touch()"
+        @blur="$v.name.$touch()"
+      ></v-text-field>
+      <v-select
+        v-model="select"
+        :items="items"
+        :error-messages="selectErrors"
+        label="Region of FSP"
+        required
+        @change="$v.select.$touch()"
+        @blur="$v.select.$touch()"
+      ></v-select>
+      <v-select
+        v-model="select"
+        :items="items"
+        :error-messages="selectErrors"
+        label="District of FSP"
+        required
+        @change="$v.select.$touch()"
+        @blur="$v.select.$touch()"
+      ></v-select>
+      <v-select
+        v-model="select"
+        :items="items"
+        :error-messages="selectErrors"
+        label="Level of FSP"
+        required
+        @change="$v.select.$touch()"
+        @blur="$v.select.$touch()"
+      ></v-select>
+      <v-select
+        v-model="select"
+        :items="items"
+        :error-messages="selectErrors"
+        label="First Service Point"
+        required
+        @change="$v.select.$touch()"
+        @blur="$v.select.$touch()"
+      ></v-select>
       <!-- <v-select
         v-model="select"
         :items="items"
