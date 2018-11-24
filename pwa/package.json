@@ -1,9 +1,23 @@
 {
-  "name": "offline-insurance",
-  "scripts": {
-    "dev": "nuxt"
-  },
+  "name": "solution",
+  "version": "2.0.0",
+  "description": "",
+  "main": "db_setup.js",
   "dependencies": {
-    "nuxt": "^2.3.2"
-  }
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "fs": "^0.0.1-security"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "del": "^3.0.0",
+    "gulp": "^4.0.0",
+    "workbox-build": "^3.5.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp && concurrently --kill-others \"gulp watch\" \"node server.js\""
+  },
+  "author": "",
+  "license": "ISC"
 }
