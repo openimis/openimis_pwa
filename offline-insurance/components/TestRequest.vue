@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'FormAddFamilyMember',
+  name: 'TestRequest',
   data() {
     return {
       requests: this.$store.requests

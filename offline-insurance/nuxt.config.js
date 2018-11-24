@@ -1,9 +1,15 @@
-import meta from './assets/meta'
-
+const meta = require('./assets/meta')
 const nodeExternals = require('webpack-node-externals')
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 
+if (!process.env.TOKEN) {
+  throw Error('Please set TOKEN for auth on development')
+}
+
 module.exports = {
+  env: {
+    accessToken: process.env.TOKEN
+  },
   head: {
     title: 'offline-insurance',
     link: [
@@ -15,11 +21,11 @@ module.exports = {
       }
     ]
   },
-  plugins: ['~/plugins/vuetify.js'],
   css: ['~/assets/style/app.styl'],
-  meta,
   loading: { color: '#24802e' },
+  meta,
   modules: ['@nuxtjs/pwa', '@nuxtjs/axios'],
+  plugins: ['~/plugins/vuetify.js', '~/plugins/axios'],
   workbox: {
     // Workbox options, for PWA mode
     dev: true
