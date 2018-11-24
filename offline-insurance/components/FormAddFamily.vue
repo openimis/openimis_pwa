@@ -397,27 +397,33 @@ export default {
     submit() {
       this.$v.$touch()
       this.$axios
-        .post('https://baselhack.swisstph-mis.ch/RestApi/api/family/', {
-          beneficiaryCard: this.beneficiaryCard,
-          BirthDate: '01-02-1980',
-          checkbox: this.checkbox,
-          ConfirmationNumber: this.ConfirmationNumber,
-          confirmationType: this.confirmationType,
-          district: this.district,
-          educationLevels: this.educationLevels,
-          email: this.email || '',
-          FirstName: this.FirstName,
-          GroupType: this.GroupType,
-          InsuranceNumber: this.InsuranceNumber,
-          // items: this.items, ['Item 1', 'Item 2', 'Item 3', 'Item 4'],
-          LastName: this.LastName,
-          MaritalStatus: this.MaritalStatus,
-          name: this.name,
-          PermanentAddress: this.PermanentAddress,
-          povertyStatus: this.povertyStatus,
-          region: this.region
-          // select: this.select
-        })
+        .post(
+          'https://baselhack.swisstph-mis.ch/RestApi/api/family/',
+          {
+            beneficiaryCard: this.beneficiaryCard,
+            BirthDate: '01-02-1980',
+            checkbox: this.checkbox,
+            ConfirmationNumber: this.ConfirmationNumber,
+            confirmationType: this.confirmationType,
+            district: this.district,
+            educationLevels: this.educationLevels,
+            email: this.email || '',
+            FirstName: this.FirstName,
+            GroupType: this.GroupType,
+            InsuranceNumber: this.InsuranceNumber,
+            // items: this.items, ['Item 1', 'Item 2', 'Item 3', 'Item 4'],
+            LastName: this.LastName,
+            MaritalStatus: this.MaritalStatus,
+            name: this.name,
+            PermanentAddress: this.PermanentAddress,
+            povertyStatus: this.povertyStatus,
+            region: this.region
+            // select: this.select
+          },
+          {
+            timeout: 1000
+          }
+        )
         .then(console.warn)
         .catch(console.error)
     },
