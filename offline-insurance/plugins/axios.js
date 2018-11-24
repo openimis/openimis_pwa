@@ -5,12 +5,20 @@ export default function({ $axios, redirect, store }) {
 
   $axios.onRequest(config => {
     console.log('Making request to ' + config.url)
+    console.log(config)
+    store.commit('requests', {
+      data: config.data,
+      headers: config.headers,
+      method: config.method,
+      url: config.url
+    })
   })
 
   $axios.onError(error => {
     const code = parseInt(error.response && error.response.status)
 
     if (error.message === 'Network Error') {
+      console.log('Error from:', error)
       store.commit('requestsErrors', error)
     }
 
@@ -19,3 +27,22 @@ export default function({ $axios, redirect, store }) {
     }
   })
 }
+
+// REAL API IS LIKE THIS
+// Add a request interceptor
+// axios.interceptors.request.use(function (config) {
+//   Do something before request is sent
+// return config;
+// }, function (error) {
+//   Do something with request error
+// return Promise.reject(error);
+// });
+//
+// Add a response interceptor
+// axios.interceptors.response.use(function (response) {
+//   Do something with response data
+// return response;
+// }, function (error) {
+//   Do something with response error
+// return Promise.reject(error);
+// });
