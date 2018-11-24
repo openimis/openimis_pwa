@@ -1,21 +1,5 @@
 <template>
   <div class="text-xs-center">
-    <!-- <v-menu transition="slide-x-transition">
-      <v-btn slot="activator" dark color="primary">Slide X Transition</v-btn>
-      <v-list>
-        <v-list-tile v-for="n in members" :key="n">
-          <v-list-tile-title v-text="'Item ' + n"></v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-menu>
-    <v-menu transition="slide-x-reverse-transition">
-      <v-btn slot="activator" dark color="secondary">Slide X Reverse Transition</v-btn>
-      <v-list>
-        <v-list-tile v-for="n in locations" :key="n">
-          <v-list-tile-title v-text="'Item ' + n"></v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-menu> -->
     <form>
       <v-select
         v-model="region"
@@ -63,7 +47,16 @@
         @blur="$v.select.$touch()"
       ></v-select>
     -->
-
+      <v-select
+        v-model="educationLevels"
+        :items=this.$store.state.master.educationLevels
+        :error-messages="selectErrors"
+        label="Education"
+        item-text="educationLevel"
+        item-value="educationLevelId"
+        @change="$v.select.$touch()"
+        @blur="$v.select.$touch()"
+      ></v-select>
       <v-checkbox
         v-model="povertyStatus"
         label="Poverty status"
@@ -116,7 +109,7 @@
         @blur="$v.name.$touch()"
       ></v-text-field>
       <v-text-field
-        v-model="Firstname"
+        v-model="FirstName"
         :error-messages="nameErrors"
         label="Other Names"
         required
@@ -124,7 +117,7 @@
         @blur="$v.name.$touch()"
       ></v-text-field>
       <v-text-field
-        v-model="Lastname"
+        v-model="LastName"
         :error-messages="nameErrors"
         label="Surname"
         required
@@ -132,7 +125,7 @@
         @blur="$v.name.$touch()"
       ></v-text-field>
       <v-text-field
-        v-model="email"
+        v-model="BirthDate"
         :error-messages="emailErrors"
         label="Birthdate"
         required
@@ -218,16 +211,6 @@
         @blur="$v.select.$touch()"
       ></v-select>
     -->
-      <v-select
-        v-model="educationLevels"
-        :items=this.$store.state.master.educationLevels
-        :error-messages="selectErrors"
-        label="Education"
-        item-text="educationLevel"
-        item-value="educationLevelId"
-        @change="$v.select.$touch()"
-        @blur="$v.select.$touch()"
-      ></v-select>
       <!--
       <v-text-field
         v-model="name"
@@ -343,24 +326,25 @@ export default {
   },
 
   data: () => ({
-    name: '',
-    email: '',
-    select: null,
-    items: ['Item 1', 'Item 2', 'Item 3', 'Item 4'],
+    beneficiaryCard: '',
+    BirthDate: '01-02-1980',
     checkbox: false,
-    district: null,
-    region: null,
-    beneficiaryCard: null,
-    educationLevels: null,
-    povertyStatus: null,
-    confirmationType: null,
     ConfirmationNumber: null,
+    confirmationType: null,
+    district: null,
+    educationLevels: null,
+    email: '',
+    FirstName: 'Emma',
     GroupType: null,
-    PermanentAddress: null,
     InsuranceNumber: null,
-    FirstName: null,
-    LastName: null,
-    MaritalStatus: null
+    items: ['Item 1', 'Item 2', 'Item 3', 'Item 4'],
+    LastName: 'Muster',
+    MaritalStatus: null,
+    name: '',
+    PermanentAddress: null,
+    povertyStatus: null,
+    region: null,
+    select: null
   }),
 
   computed: {
@@ -412,15 +396,30 @@ export default {
   methods: {
     submit() {
       this.$v.$touch()
-      console.log('this:' + this)
-      /*this.$axios
-        .post(
-          'https://baselhack.swisstph-mis.ch/RestApi/api/family/',
-          this
-        )
+      this.$axios
+        .post('https://baselhack.swisstph-mis.ch/RestApi/api/family/', {
+          beneficiaryCard: this.beneficiaryCard,
+          BirthDate: '01-02-1980',
+          checkbox: this.checkbox,
+          ConfirmationNumber: this.ConfirmationNumber,
+          confirmationType: this.confirmationType,
+          district: this.district,
+          educationLevels: this.educationLevels,
+          email: this.email || '',
+          FirstName: this.FirstName,
+          GroupType: this.GroupType,
+          InsuranceNumber: this.InsuranceNumber,
+          // items: this.items, ['Item 1', 'Item 2', 'Item 3', 'Item 4'],
+          LastName: this.LastName,
+          MaritalStatus: this.MaritalStatus,
+          name: this.name,
+          PermanentAddress: this.PermanentAddress,
+          povertyStatus: this.povertyStatus,
+          region: this.region
+          // select: this.select
+        })
         .then(console.warn)
         .catch(console.error)
-        */
     },
     clear() {
       this.$v.$reset()
