@@ -10,6 +10,16 @@
           </small>
         </footer>
       </blockquote>
+      <FormAddFamily></FormAddFamily>
     </v-flex>
   </v-layout>
 </template>
+<script>
+  import FormAddFamily from '~/components/FormAddFamily'
+
+  export default {
+    components: {
+      FormAddFamily
+    }
+  }
+</script>
