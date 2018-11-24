@@ -11,7 +11,6 @@
           </small>
         </footer>
       </blockquote>
-      <FormAddFamily></FormAddFamily>
       <FormAddFamilyMember></FormAddFamilyMember>
       {{ requests }}
     </v-flex>
