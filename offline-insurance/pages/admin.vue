@@ -67,7 +67,7 @@
     </v-layout>
     <v-layout row>
       <div class="text-xs-center">
-        <v-btn color="warning" @click="onSync">
+        <v-btn color="green" @click="onSync">
           <v-badge left>
             <span slot="badge">{{ requestsErrors.length }}</span>
             <v-icon
