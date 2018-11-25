@@ -28,7 +28,8 @@ module.exports = {
   plugins: ['~/plugins/vuetify.js', '~/plugins/axios'],
   workbox: {
     // Workbox options, for PWA mode
-    dev: true
+    dev: true,
+    importScripts: ['sw-sync.js']
   },
   build: {
     transpile: [/^vuetify/],
