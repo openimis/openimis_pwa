@@ -91,6 +91,8 @@ export default {
       return
     }
 
+    Notification.requestPermission()
+
     window.addEventListener('offline', () =>
       this.$store.commit('networkStatus', 'offline')
     )
