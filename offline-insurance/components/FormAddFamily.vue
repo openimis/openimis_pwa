@@ -1,53 +1,56 @@
 <template>
   <div class="text-xs-center">
     <form>
-      <v-select
-        v-model="region"
+      <v-select v-model="selectedRegion"
         :items=this.$store.state.master.locations
         :error-messages="selectErrors"
         item-text="locationName"
         item-value="locationId"
-        placeholder="Ultha"
+        placeholder="Select the region"
         label="Region"
         required
         @change="$v.select.$touch()"
-        @blur="$v.select.$touch()"
-      ></v-select>
+        @blur="$v.select.$touch()">
+      </v-select>
 
       <v-select
-        v-model="district"
+        v-model="selectedDistrict"
         :items=districts
         :error-messages="selectErrors"
         item-text="locationName"
         item-value="locationId"
-        placeholder="Baglung"
+        placeholder="Select the district"
         label="District"
         required
         @change="$v.select.$touch()"
         @blur="$v.select.$touch()"
       ></v-select>
-
-      <!--
       <v-select
-        v-model="ward"
-        :items="items"
+        v-model="selectedWard"
+        :items="wards"
         :error-messages="selectErrors"
+        item-text="locationName"
+        item-value="locationId"
+        placeholder="Select the ward"
         label="Ward"
         required
         @change="$v.select.$touch()"
         @blur="$v.select.$touch()"
       ></v-select>
       <v-select
-        v-model="select"
-        :items="items"
+        v-model="addFamilyForm.locationId"
+        :items="villages"
         :error-messages="selectErrors"
+        item-text="locationName"
+        item-value="locationId"
+        placeholder="Select the village"
         label="Village"
         required
         @change="$v.select.$touch()"
         @blur="$v.select.$touch()"
       ></v-select>
-    -->
-      <v-select
+    
+      <!--<v-select
         v-model="educationLevels"
         :items=this.$store.state.master.educationLevels
         :error-messages="selectErrors"
@@ -131,7 +134,7 @@
         required
         @input="$v.email.$touch()"
         @blur="$v.email.$touch()"
-      ></v-text-field>
+      ></v-text-field>-->
       <!-- <v-select
         v-model="select"
         :items="items"
@@ -141,7 +144,7 @@
         @change="$v.select.$touch()"
         @blur="$v.select.$touch()"
       ></v-select> -->
-      <v-select
+      <!--<v-select
         v-model="MaritalStatus"
         :items="items"
         :error-messages="selectErrors"
@@ -155,7 +158,7 @@
         label="Beneficiary Card"
         @change="$v.checkbox.$touch()"
         @blur="$v.checkbox.$touch()"
-      ></v-checkbox>
+      ></v-checkbox>-->
 
       <!--
       <v-select
@@ -313,7 +316,6 @@ import { required, maxLength, email } from 'vuelidate/lib/validators'
 
 export default {
   mixins: [validationMixin],
-
   validations: {
     name: { required, maxLength: maxLength(10) },
     email: { required, email },
@@ -324,46 +326,78 @@ export default {
       }
     }
   },
-
   data: () => ({
-    beneficiaryCard: '',
-    BirthDate: '01-02-1980',
-    checkbox: false,
-    ConfirmationNumber: null,
-    confirmationType: null,
-    district: null,
-    educationLevels: null,
-    email: '',
-    FirstName: 'Emma',
-    GroupType: null,
-    InsuranceNumber: null,
-    items: ['Item 1', 'Item 2', 'Item 3', 'Item 4'],
-    LastName: 'Muster',
-    MaritalStatus: null,
-    name: '',
-    PermanentAddress: null,
-    povertyStatus: null,
-    region: null,
-    select: null
-  }),
-
-  computed: {
-    districts() {
-      const loc = this.$store.state.master.locations
-      var districts
-      /*const districts = this.$store.state.master.locations.filter(
-        el => parseInt(el.locationId) == parseInt(this.region)
-      ).locations*/
-      var l
-
-      for (l of loc) {
-        //console.log('L' + l.locationId)
-        if (l.locationId == this.region) {
-          districts = l.locations
-        }
-      }
-      return districts
+    addFamilyForm: {
+      beneficiaryCard: '',
+      BirthDate: '01-02-1980',
+      checkbox: false,
+      ConfirmationNumber: null,
+      confirmationType: null,
+      district: null,
+      educationLevels: null,
+      email: '',
+      FirstName: 'Emma',
+      GroupType: null,
+      InsuranceNumber: null,
+      items: ['Item 1', 'Item 2', 'Item 3', 'Item 4'],
+      LastName: 'Muster',
+      MaritalStatus: null,
+      name: '',
+      PermanentAddress: null,
+      povertyStatus: null,
+      locationId: null,
+      select: null
     },
+    regions: [],
+    districts: [],
+    wards: [],
+    villages: [],
+    selectedRegion: '',
+    selectedDistrict: '',
+    selectedWard: '',
+  }), 
+  watch: {
+    selectedRegion: function () {
+      this.districts = [];
+      this.wards = [];
+      this.villages = [];
+      if (this.selectedRegion > 0) {
+        this.districts = this.$store.state.master.locations.find(
+          location => {
+            return location.locationId === this.selectedRegion
+          }).locations;
+      }
+    },
+    selectedDistrict: function () {
+      this.wards = [];
+      this.villages = [];
+      if (this.selectedDistrict > 0) {
+        this.wards = this.$store.state.master.locations.find(
+          location => {
+            return location.locationId === this.selectedRegion
+          }).locations.find(
+            location => {
+              return location.locationId === this.selectedDistrict
+            }).locations; 
+      }
+    },
+    selectedWard: function () {
+      this.villages = [];
+      if (this.selectedWard > 0) {
+        this.villages = this.$store.state.master.locations.find(
+          location => {
+            return location.locationId === this.selectedRegion
+          }).locations.find(
+            location => {
+              return location.locationId === this.selectedDistrict
+          }).locations.find(
+            location => {
+              return location.locationId === this.selectedWard
+            }).locations;
+      }
+    },
+  },
+  computed: {
     checkboxErrors() {
       const errors = []
       // if (!this.$v.checkbox.$dirty) return errors
@@ -392,8 +426,31 @@ export default {
       return errors
     }
   },
-
+  //mounted: {
+  //  document.onreadystatechange = () => {
+  //    if (document.readyState == "complete") {
+  //      regions = this.$store.state.master.locations;
+  //    }
+  //  }
+  //},
   methods: {
+    //districts() {
+    //  console.log("Districticts...");
+    //  const loc = this.$store.state.master.locations
+    //  var districts
+    //  /*const districts = this.$store.state.master.locations.filter(
+    //    el => parseInt(el.locationId) == parseInt(
+    //  var lthis.region)
+    //  ).locations*/
+
+    //  for (l of loc) {
+    //    //console.log('L' + l.locationId)
+    //    if (l.locationId == this.region) {
+    //      districts = l.locations
+    //    }
+    //  }
+    //  return districts
+    //},
     submit() {
       this.$v.$touch()
 
