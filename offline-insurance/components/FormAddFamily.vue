@@ -354,48 +354,47 @@ export default {
     villages: [],
     selectedRegion: '',
     selectedDistrict: '',
-    selectedWard: '',
-  }), 
+    selectedWard: ''
+  }),
   watch: {
-    selectedRegion: function () {
-      this.districts = [];
-      this.wards = [];
-      this.villages = [];
+    selectedRegion: function() {
+      this.districts = []
+      this.wards = []
+      this.villages = []
       if (this.selectedRegion > 0) {
-        this.districts = this.$store.state.master.locations.find(
-          location => {
-            return location.locationId === this.selectedRegion
-          }).locations;
+        this.districts = this.$store.state.master.locations.find(location => {
+          return location.locationId === this.selectedRegion
+        }).locations
       }
     },
-    selectedDistrict: function () {
-      this.wards = [];
-      this.villages = [];
+    selectedDistrict: function() {
+      this.wards = []
+      this.villages = []
       if (this.selectedDistrict > 0) {
-        this.wards = this.$store.state.master.locations.find(
-          location => {
+        this.wards = this.$store.state.master.locations
+          .find(location => {
             return location.locationId === this.selectedRegion
-          }).locations.find(
-            location => {
-              return location.locationId === this.selectedDistrict
-            }).locations; 
+          })
+          .locations.find(location => {
+            return location.locationId === this.selectedDistrict
+          }).locations
       }
     },
-    selectedWard: function () {
-      this.villages = [];
+    selectedWard: function() {
+      this.villages = []
       if (this.selectedWard > 0) {
-        this.villages = this.$store.state.master.locations.find(
-          location => {
+        this.villages = this.$store.state.master.locations
+          .find(location => {
             return location.locationId === this.selectedRegion
-          }).locations.find(
-            location => {
-              return location.locationId === this.selectedDistrict
-          }).locations.find(
-            location => {
-              return location.locationId === this.selectedWard
-            }).locations;
+          })
+          .locations.find(location => {
+            return location.locationId === this.selectedDistrict
+          })
+          .locations.find(location => {
+            return location.locationId === this.selectedWard
+          }).locations
       }
-    },
+    }
   },
   computed: {
     checkboxErrors() {
